@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/views/layout/Layout.vue'
 import Home from '@/views/home/Home.vue'
+import Find from '@/views/find/Find.vue'
+import Mine from '@/views/mine/Mine.vue'
 
 const routes = [
   {
@@ -27,6 +29,22 @@ const routes = [
           title: '通讯录'
         },
         component: () => import('@/views/contact/Contact.vue')
+      },
+      {
+        path: '/find',
+        name: 'Find',
+        meta: {
+          title: '发现'
+        },
+        component: Find
+      },
+      {
+        path: '/mine',
+        name: 'Mine',
+        meta: {
+          title: '我'
+        },
+        component: Mine
       }
     ]
   }

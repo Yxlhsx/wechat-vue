@@ -14,7 +14,7 @@
 const num = 10
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .conversation-item {
   width: 100vw;
   height: 80px;
@@ -36,7 +36,7 @@ const num = 10
   }
 
   .info {
-    width: calc(100vw - 60px);
+    width: calc(100vw - 80px);
     height: 80px;
     border-bottom: #e8e8e8 solid 0.5px;
     display: flex;
