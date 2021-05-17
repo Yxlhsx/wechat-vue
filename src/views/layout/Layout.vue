@@ -12,22 +12,22 @@
   </div>
 
   <div class="footer">
-    <div class="nav-item" @click="to('/home')" :class="{ selected: index === '/home' }">
+    <router-link to="/home" class="nav-item" :class="{ selected: index === '/home' }">
       <div class="item-ico"></div>
       <span>微信</span>
-    </div>
-    <div class="nav-item" @click="to('/contact')" :class="{ selected: index === '/contact' }">
+    </router-link>
+    <router-link to="/contact" class="nav-item" :class="{ selected: index === '/contact' }">
       <div class="item-ico"></div>
       <span>通讯录</span>
-    </div>
-    <div class="nav-item" @click="to('/find')" :class="{ selected: index === '/find' }">
+    </router-link>
+    <router-link to="/find" class="nav-item" :class="{ selected: index === '/find' }">
       <div class="item-ico"></div>
       <span>发现</span>
-    </div>
-    <div class="nav-item" @click="to('/mine')" :class="{ selected: index === '/mine' }">
+    </router-link>
+    <router-link to="/mine" class="nav-item" :class="{ selected: index === '/mine' }">
       <div class="item-ico"></div>
       <span>我</span>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -45,7 +45,6 @@ watch(
   (n, o) => {
     pageTitle.value = n.meta.title
     index.value = n.path
-    console.log(index.value)
   },
   { immediate: true }
 )
@@ -53,14 +52,9 @@ watch(
 const fullscreen = () => {
   if (document.fullscreenElement) {
     document.exitFullscreen()
-    launchFullscreen(document.documentElement)
   } else {
     document.documentElement.requestFullscreen()
   }
-}
-
-const to = (href) => {
-  router.push(href)
 }
 </script>
 
@@ -118,20 +112,28 @@ const to = (href) => {
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    text-decoration: none;
 
     .item-ico {
       width: 30px;
       height: 30px;
       background-color: #010101;
     }
-  }
-  .selected {
-    .item-ico {
-      background-color: #10bb61;
-    }
     span {
-      color: #10bb61;
+      color: #010101;
     }
   }
+
+  .router-link-active {
+    color: #f7f7f7;
+  }
+  // .selected {
+  //   .item-ico {
+  //     background-color: #10bb61;
+  //   }
+  //   span {
+  //     color: #10bb61;
+  //   }
+  // }
 }
 </style>

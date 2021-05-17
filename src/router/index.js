@@ -47,17 +47,11 @@ const routes = [
         component: Mine
       }
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*', // 此处需特别注意置于最底部
+    redirect: '/home'
   }
-  // {
-  // 	path: '/vuex',
-  // 	name: 'Vuex',
-  // 	component: Vuex
-  // },
-  // {
-  // 	path: '/axios',
-  // 	name: 'Axios',
-  // 	component: () => import('@/views/axios.vue') // 懒加载组件
-  // }
 ]
 
 const router = createRouter({

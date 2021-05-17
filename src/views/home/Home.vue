@@ -17,27 +17,28 @@ const num = 10
 <style lang="less" scoped>
 .conversation-item {
   width: 100vw;
-  height: 80px;
+  height: @item-height;
   display: flex;
   align-items: center;
+  @item-height: 70px;
 
   .avatar {
-    width: 80px;
-    height: 80px;
+    width: @item-height;
+    height: @item-height;
     display: flex;
     justify-content: center;
     align-items: center;
 
     img {
-      width: 60px;
-      height: 60px;
+      width: @item-height * 0.7;
+      height: @item-height * 0.7;
       border-radius: 10px;
     }
   }
 
   .info {
-    width: calc(100vw - 80px);
-    height: 80px;
+    width: calc(100vw - @item-height);
+    height: @item-height;
     border-bottom: #e8e8e8 solid 0.5px;
     display: flex;
     flex-direction: column;
