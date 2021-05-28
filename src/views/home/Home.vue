@@ -15,12 +15,14 @@ const num = 10
 </script>
 
 <style lang="less" scoped>
+@item-height: 70px;
+
 .conversation-item {
   width: 100vw;
   height: @item-height;
   display: flex;
   align-items: center;
-  @item-height: 70px;
+  background-color: #ffffff;
 
   .avatar {
     width: @item-height;

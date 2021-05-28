@@ -22,6 +22,7 @@
         <div class="title">公众号</div>
       </div>
     </div>
+
     <div class="contact-block" v-for="item in 24" :key="item">
       <span class="contact-head">{{ item }}</span>
       <div class="contact-item" v-for="_item in 5" :key="_item">
@@ -41,10 +42,9 @@
 </script>
 
 <style lang="less" scoped>
-.contact {
-  background-color: #eeeeee;
-  @item-heigh: 50px;
+@item-heigh: 50px;
 
+.contact {
   .menu-block {
     background-color: #ffffff;
     .menu-item {
@@ -66,7 +66,7 @@
       }
 
       .title {
-        width: 100vw - @item-heigh;
+        width: calc(100vw - (@item-heigh + 15px));
         height: @item-heigh;
         border-bottom: #e8e8e8 solid 0.5px;
         line-height: @item-heigh;
@@ -103,7 +103,7 @@
       }
 
       .name {
-        width: 100vw - @item-heigh;
+        width: calc(100vw - @item-heigh);
         height: @item-heigh;
         line-height: @item-heigh;
         border-bottom: #e8e8e8 solid 0.5px;

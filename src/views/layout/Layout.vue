@@ -1,35 +1,35 @@
 <template>
-  <div class="layout">
-    <div class="header" @click="fullscreen()">
+  <div class="header" @click="fullscreen()">
+    <div class="common-header" v-show="!hideHeader">
       <div class="title">{{ pageTitle }}</div>
       <div class="menu">
         <div></div>
         <div></div>
       </div>
     </div>
+  </div>
 
-    <div class="main">
-      <router-view />
-    </div>
+  <div class="main">
+    <router-view />
+  </div>
 
-    <div class="footer">
-      <router-link to="/home" class="nav-item" :class="{ selected: index === '/home' }">
-        <div class="item-ico"></div>
-        <span>微信</span>
-      </router-link>
-      <router-link to="/contact" class="nav-item" :class="{ selected: index === '/contact' }">
-        <div class="item-ico"></div>
-        <span>通讯录</span>
-      </router-link>
-      <router-link to="/find" class="nav-item" :class="{ selected: index === '/find' }">
-        <div class="item-ico"></div>
-        <span>发现</span>
-      </router-link>
-      <router-link to="/mine" class="nav-item" :class="{ selected: index === '/mine' }">
-        <div class="item-ico"></div>
-        <span>我</span>
-      </router-link>
-    </div>
+  <div class="footer">
+    <router-link to="/home" class="nav-item" :class="{ selected: index === '/home' }">
+      <div class="item-ico"></div>
+      <span>微信</span>
+    </router-link>
+    <router-link to="/contact" class="nav-item" :class="{ selected: index === '/contact' }">
+      <div class="item-ico"></div>
+      <span>通讯录</span>
+    </router-link>
+    <router-link to="/find" class="nav-item" :class="{ selected: index === '/find' }">
+      <div class="item-ico"></div>
+      <span>发现</span>
+    </router-link>
+    <router-link to="/mine" class="nav-item" :class="{ selected: index === '/mine' }">
+      <div class="item-ico"></div>
+      <span>我</span>
+    </router-link>
   </div>
 </template>
 
@@ -41,12 +41,14 @@ const route = useRoute()
 
 let pageTitle = ref()
 let index = ref()
+let hideHeader = ref(false)
 
 watch(
   route,
   (n, o) => {
     pageTitle.value = n.meta.title
     index.value = n.path
+    hideHeader.value = n.meta.hideHeader
   },
   { immediate: true }
 )
@@ -61,17 +63,17 @@ const fullscreen = () => {
 </script>
 
 <style lang="less" scoped>
-.layout {
-  // padding: 50px 0 70px 0;
-  // box-sizing: border-box;
-  .header {
+.header {
+  width: 100vw;
+  height: 50px;
+  background-color: #ffffff;
+
+  .common-header {
     width: 100vw;
     height: 50px;
-    background-color: #efefef;
-    position: fixed;
-    top: 0;
     display: flex;
     align-items: center;
+    background-color: #efefef;
 
     .title {
       margin: 0 auto;
@@ -92,46 +94,46 @@ const fullscreen = () => {
       }
     }
   }
+}
 
-  .main {
-    margin: 50px 0 70px 0;
+.main {
+  height: calc(100vh - 50px - 70px);
+  background-color: #efefef;
+  overflow: auto;
+}
+
+.footer {
+  width: 100vw;
+  height: 70px;
+  box-sizing: border-box;
+  border-top: #d8d8d8 solid 0.5px;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .nav-item {
+    width: 22%;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+
+    .item-ico {
+      width: 30px;
+      height: 30px;
+      background-color: #010101;
+    }
+    span {
+      color: #010101;
+    }
   }
 
-  .footer {
-    width: 100vw;
-    height: 70px;
-    box-sizing: border-box;
-    border-top: #d8d8d8 solid 0.5px;
-    background-color: #f7f7f7;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .nav-item {
-      width: 22%;
-      height: 70px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      text-decoration: none;
-
-      .item-ico {
-        width: 30px;
-        height: 30px;
-        background-color: #010101;
-      }
-      span {
-        color: #010101;
-      }
-    }
-
-    .router-link-active {
-      color: #f7f7f7;
-    }
+  .router-link-active {
+    color: #f7f7f7;
   }
 }
 </style>

@@ -42,7 +42,8 @@ const routes = [
         path: '/mine',
         name: 'Mine',
         meta: {
-          title: '我'
+          title: '我',
+          hideHeader: true
         },
         component: Mine
       }
