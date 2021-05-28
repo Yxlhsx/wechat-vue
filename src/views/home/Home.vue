@@ -1,5 +1,5 @@
 <template>
-  <div class="conversation-item" v-for="item in 100" :key="item">
+  <div class="conversation-item" v-for="item in num" :key="item">
     <div class="avatar">
       <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="头像" />
     </div>
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-const num = 10
+const num = 1
 </script>
 
 <style lang="less" scoped>
@@ -23,6 +23,7 @@ const num = 10
   display: flex;
   align-items: center;
   background-color: #ffffff;
+  content-visibility: auto;
 
   .avatar {
     width: @item-height;
