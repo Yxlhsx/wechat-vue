@@ -27,7 +27,7 @@ const itemList = reactive([
     title: '扫一扫'
   },
   {
-    title: '摇一摇'
+    title: '摇是一摇'
   }
 ])
 </script>
