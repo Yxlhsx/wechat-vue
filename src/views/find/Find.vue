@@ -19,6 +19,15 @@ import { reactive } from 'vue'
 const itemList = reactive([
   {
     title: '朋友圈'
+  },
+  {
+    title: '视频号'
+  },
+  {
+    title: '扫一扫'
+  },
+  {
+    title: '摇一摇'
   }
 ])
 </script>

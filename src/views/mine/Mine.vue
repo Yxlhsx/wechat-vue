@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <div class="settings item">
+  <div class="settings item" @click="to('/setting')">
     <div class="left">
       <img src="" alt="" />
       <h5>设置</h5>
@@ -81,6 +81,13 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const to = (url) => {
+  router.push(url)
+}
 </script>
 
 <style lang="less" scoped>

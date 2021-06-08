@@ -46,6 +46,15 @@ const routes = [
           hideHeader: true
         },
         component: Mine
+      },
+      {
+        path: '/setting',
+        name: 'Setting',
+        meta: {
+          title: '设置',
+          hideHeader: true
+        },
+        component: ()=> import('@/views/setting/Index.vue')
       }
     ]
   },
