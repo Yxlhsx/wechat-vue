@@ -3,8 +3,8 @@
     <div class="common-header" v-show="!hideHeader">
       <div class="title">{{ pageTitle }}</div>
       <div class="menu">
-        <div></div>
-        <div></div>
+        <img src="/src/assets/search.svg" alt="搜索" />
+        <img src="/src/assets/more.svg" alt="更多" />
       </div>
     </div>
   </div>
@@ -14,28 +14,28 @@
   </div>
 
   <div class="footer">
-    <router-link to="/home" class="nav-item" :class="{ selected: index === '/home' }">
-      <div class="item-ico"></div>
+    <router-link to="/home" class="nav-item">
+      <img class="item-ico" :src="isActive('/home')" alt="" />
       <span>微信</span>
     </router-link>
-    <router-link to="/contact" class="nav-item" :class="{ selected: index === '/contact' }">
-      <div class="item-ico"></div>
+    <router-link to="/contact" class="nav-item">
+      <img class="item-ico" :src="isActive('/contact')" alt="" />
       <span>通讯录</span>
     </router-link>
-    <router-link to="/find" class="nav-item" :class="{ selected: index === '/find' }">
-      <div class="item-ico"></div>
+    <router-link to="/find" class="nav-item">
+      <img class="item-ico" :src="isActive('/find')" alt="" />
       <span>发现</span>
     </router-link>
-    <router-link to="/mine" class="nav-item" :class="{ selected: index === '/mine' }">
-      <div class="item-ico"></div>
+    <router-link to="/mine" class="nav-item">
+      <img class="item-ico" :src="isActive('/mine')" alt="" />
       <span>我</span>
     </router-link>
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { computed, ref, watch } from 'vue'
+import { routerKey, useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
 
@@ -52,6 +52,11 @@ watch(
   },
   { immediate: true }
 )
+
+const isActive = (url) => {
+  const icoName = index.value === url ? `${url}-active` : url
+  return `/src/assets${icoName}.svg`
+}
 
 const fullscreen = () => {
   if (document.fullscreenElement) {
@@ -87,10 +92,9 @@ const fullscreen = () => {
       display: flex;
       justify-content: space-between;
 
-      & > div {
-        width: 30px;
-        height: 30px;
-        background-color: #010101;
+      & > img {
+        width: 25px;
+        height: 25px;
       }
     }
   }
@@ -123,9 +127,8 @@ const fullscreen = () => {
     text-decoration: none;
 
     .item-ico {
-      width: 30px;
-      height: 30px;
-      background-color: #010101;
+      width: 25px;
+      height: 25px;
     }
     span {
       color: #010101;
