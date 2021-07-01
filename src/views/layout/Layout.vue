@@ -14,28 +14,28 @@
   </div>
 
   <div class="footer">
-    <router-link to="/home" class="nav-item">
-      <img class="item-ico" :src="isActive('/home')" alt="" />
+    <router-link to="/home" class="nav-item home">
+      <div class="item-ico" />
       <span>微信</span>
     </router-link>
-    <router-link to="/contact" class="nav-item">
-      <img class="item-ico" :src="isActive('/contact')" alt="" />
+    <router-link to="/contact" class="nav-item contact">
+      <div class="item-ico" />
       <span>通讯录</span>
     </router-link>
-    <router-link to="/find" class="nav-item">
-      <img class="item-ico" :src="isActive('/find')" alt="" />
+    <router-link to="/find" class="nav-item find">
+      <div class="item-ico" />
       <span>发现</span>
     </router-link>
-    <router-link to="/mine" class="nav-item">
-      <img class="item-ico" :src="isActive('/mine')" alt="" />
+    <router-link to="/mine" class="nav-item mine">
+      <div class="item-ico" />
       <span>我</span>
     </router-link>
   </div>
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
-import { routerKey, useRoute, useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
 
@@ -130,13 +130,38 @@ const fullscreen = () => {
       width: 25px;
       height: 25px;
     }
+
+    &.home .item-ico {
+      background-image: url('/src/assets/home.svg');
+    }
+    &.contact .item-ico {
+      background-image: url('/src/assets/contact.svg');
+    }
+    &.find .item-ico {
+      background-image: url('/src/assets/find.svg');
+    }
+    &.mine .item-ico {
+      background-image: url('/src/assets/mine.svg');
+    }
+
     span {
       color: #010101;
     }
   }
 
-  .router-link-active {
-    color: #f7f7f7;
+  .router-link-active.nav-item {
+    &.home .item-ico {
+      background-image: url('/src/assets/home-active.svg');
+    }
+    &.contact .item-ico {
+      background-image: url('/src/assets/contact-active.svg');
+    }
+    &.find .item-ico {
+      background-image: url('/src/assets/find-active.svg');
+    }
+    &.mine .item-ico {
+      background-image: url('/src/assets/mine-active.svg');
+    }
   }
 }
 </style>
