@@ -2,23 +2,19 @@
   <div class="contact">
     <div class="menu-block">
       <div class="menu-item">
-        <div class="ico"><img src="" alt="" /></div>
+        <div class="ico"><img src="/src/assets/contact/friend.png" alt="新的朋友" /></div>
         <div class="title">新的朋友</div>
       </div>
       <div class="menu-item">
-        <div class="ico"><img src="" alt="" /></div>
-        <div class="title">仅聊天的朋友</div>
-      </div>
-      <div class="menu-item">
-        <div class="ico"><img src="" alt="" /></div>
+        <div class="ico"><img src="/src/assets/contact/addgroup.png" alt="群聊" /></div>
         <div class="title">群聊</div>
       </div>
       <div class="menu-item">
-        <div class="ico"><img src="" alt="" /></div>
+        <div class="ico"><img src="/src/assets/contact/tag.png" alt="标签" /></div>
         <div class="title">标签</div>
       </div>
       <div class="menu-item">
-        <div class="ico"><img src="" alt="" /></div>
+        <div class="ico"><img src="/src/assets/contact/offical.png" alt="公众号" /></div>
         <div class="title">公众号</div>
       </div>
     </div>
@@ -38,11 +34,10 @@
   </div>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
 <style lang="less" scoped>
-@item-heigh: 50px;
+@item-heigh: 110rem;
 
 .contact {
   .menu-block {
@@ -52,8 +47,9 @@
       align-items: center;
 
       .ico {
-        width: @item-heigh + 15px;
+        width: @item-heigh + 30rem;
         height: @item-heigh;
+        background-size: 100% 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -61,15 +57,21 @@
         img {
           width: @item-heigh * 0.7;
           height: @item-heigh * 0.7;
-          border-radius: 6px;
+          border-radius: 12rem;
         }
       }
 
       .title {
-        width: calc(100vw - (@item-heigh + 15px));
+        width: calc(100vw - (@item-heigh + 30rem));
         height: @item-heigh;
-        border-bottom: #e8e8e8 solid 0.5px;
+        font-size: 32rem;
         line-height: @item-heigh;
+      }
+    }
+
+    & .menu-item:not(:last-child) {
+      .title {
+        border-bottom: #e8e8e8 solid 1rem;
       }
     }
   }
@@ -77,9 +79,10 @@
   .contact-block {
     .contact-head {
       display: inline-block;
-      height: 35px;
-      line-height: 35px;
-      text-indent: 5px;
+      height: 70rem;
+      font-size: 24rem;
+      line-height: 70rem;
+      text-indent: 30rem;
       color: #5d5d5d;
     }
 
@@ -90,7 +93,7 @@
       align-items: center;
 
       .avatar {
-        width: @item-heigh + 15px;
+        width: @item-heigh + 30rem;
         height: @item-heigh;
         display: flex;
         justify-content: center;
@@ -98,15 +101,16 @@
         img {
           width: @item-heigh * 0.7;
           height: @item-heigh * 0.7;
-          border-radius: 6px;
+          border-radius: 12rem;
         }
       }
 
       .name {
         width: calc(100vw - @item-heigh);
         height: @item-heigh;
+        font-size: 32rem;
         line-height: @item-heigh;
-        border-bottom: #e8e8e8 solid 0.5px;
+        border-bottom: #e8e8e8 solid 1rem;
       }
     }
   }
