@@ -12,6 +12,7 @@ html.style.fontSize = width / 750 + 'px'
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Noto Sans SC';
 }
 
 a,

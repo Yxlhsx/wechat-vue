@@ -18,7 +18,8 @@ const routes = [
         path: '/home',
         name: 'Home',
         meta: {
-          title: '微信'
+          title: '微信',
+          headerType: 'tab'
         },
         component: Home
       },
@@ -26,7 +27,8 @@ const routes = [
         path: '/contact',
         name: 'Contact',
         meta: {
-          title: '通讯录'
+          title: '通讯录',
+          headerType: 'tab'
         },
         component: () => import('@/views/contact/Contact.vue')
       },
@@ -34,7 +36,8 @@ const routes = [
         path: '/find',
         name: 'Find',
         meta: {
-          title: '发现'
+          title: '发现',
+          headerType: 'tab'
         },
         component: Find
       },
@@ -43,7 +46,7 @@ const routes = [
         name: 'Mine',
         meta: {
           title: '我',
-          hideHeader: true
+          headerType: 'empty'
         },
         component: Mine
       },
@@ -52,9 +55,9 @@ const routes = [
         name: 'Setting',
         meta: {
           title: '设置',
-          hideHeader: true
+          headerType: 'page'
         },
-        component: ()=> import('@/views/setting/Index.vue')
+        component: () => import('@/views/setting/Index.vue')
       }
     ]
   },

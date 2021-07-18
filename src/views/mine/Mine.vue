@@ -4,19 +4,19 @@
       <div class="avatar">
         <img
           src="https://thirdwx.qlogo.cn/mmopen/vi_32/ajNVdqHZLLA8dh3ZzGkZFJqyRazDEicdt7BTTrGwZXR43Kx5icE6GxRkTaAMbx8w4OZw9dB8WibpK0QeicMYibySvNA/132"
-          alt=""
+          alt="用户头像"
         />
       </div>
       <div class="info">
-        <h3>想望着太阳</h3>
+        <p>想望着太阳</p>
         <div class="wechat-code">
-          <h5>微信号：Yxlhsx01</h5>
-          <div>></div>
+          <p>微信号：Yxlhsx01</p>
+          <img src="/src/assets/arrow.svg" alt="右箭头" />
         </div>
       </div>
     </div>
     <div class="status">
-      <div class="btn">+ 状态</div>
+      <div class="btn">+状态</div>
     </div>
   </div>
 
@@ -92,62 +92,65 @@ const to = (url) => {
 
 <style lang="less" scoped>
 .top {
-  height: 140px;
   box-sizing: border-box;
-  padding-top: 20px;
+  padding-top: 50rem;
+  padding-bottom: 10rem;
   background-color: #ffffff;
-  border-bottom: solid 1px #dbdbdb;
+  border-bottom: solid 1rem #dbdbdb;
 
   .user {
     display: flex;
 
     .avatar {
-      width: 30%;
+      width: 200rem;
       display: flex;
       justify-content: center;
       img {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        margin-left: 5px;
+        width: 120rem;
+        height: 120rem;
+        border-radius: 12rem;
+        margin-left: 10rem;
       }
     }
 
     .info {
-      width: 70%;
+      width: 550rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
 
-      h3 {
+      & > p {
+        font-size: 40rem;
+        font-weight: 500;
         color: #1f1f1f;
       }
 
       .wechat-code {
+        font-size: 26rem;
+        color: #7d7d7d;
+        padding-right: 30rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-right: 15px;
-        color: #7d7d7d;
       }
     }
   }
 
   .status {
-    height: 60px;
-    margin-left: 30%;
+    height: 120rem;
+    margin-left: 200rem;
     display: flex;
     align-items: center;
 
     .btn {
-      width: 50px;
-      height: 20px;
-      border: solid 1px #8b8b8b;
-      border-radius: 10px;
+      width: 100rem;
+      height: 40rem;
+      border: solid 2rem #8b8b8b;
+      border-radius: 25rem;
       text-align: center;
-      line-height: 20px;
+      line-height: 40rem;
       color: #8b8b8b;
-      font-size: 14px;
+      font-size: 28rem;
     }
   }
 }

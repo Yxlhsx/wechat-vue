@@ -1,12 +1,16 @@
 <template>
   <div class="header" @click="fullscreen()">
-    <div class="common-header" v-show="!hideHeader">
+    <div class="tab-header" v-show="headerType === 'tab'">
       <div class="title">{{ pageTitle }}</div>
       <div class="menu">
         <img src="/src/assets/indexico/search.svg" alt="搜索" />
         <img src="/src/assets/indexico/more.svg" alt="更多" />
       </div>
     </div>
+    <div class="page-header" v-show="headerType === 'page'">
+      <div class="title">{{ pageTitle }}</div>
+    </div>
+    <div class="empty-header" v-show="headerType === 'empty'"></div>
   </div>
 
   <div class="main">
@@ -41,14 +45,14 @@ const route = useRoute()
 
 let pageTitle = ref()
 let index = ref()
-let hideHeader = ref(false)
+let headerType = ref()
 
 watch(
   route,
   (n, o) => {
     pageTitle.value = n.meta.title
     index.value = n.path
-    hideHeader.value = n.meta.hideHeader
+    headerType.value = n.meta.headerType
   },
   { immediate: true }
 )
@@ -73,12 +77,11 @@ const fullscreen = () => {
 .header {
   width: 100vw;
 
-  .common-header {
+  & > div {
     width: 100vw;
     height: @header_height;
     display: flex;
     align-items: center;
-    background-color: #efefef;
 
     .title {
       margin: 0 auto;
@@ -89,7 +92,7 @@ const fullscreen = () => {
     .menu {
       width: 140rem;
       position: absolute;
-      right: 20rem;
+      right: 30rem;
       display: flex;
       justify-content: space-between;
 
@@ -98,6 +101,14 @@ const fullscreen = () => {
         height: 50rem;
       }
     }
+  }
+
+  .tab-header {
+    background-color: #efefef;
+  }
+
+  .empty-header {
+    background-color: #802727;
   }
 }
 
