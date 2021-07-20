@@ -1,45 +1,35 @@
 <template>
-  <div class="header" @click="fullscreen()">
+  <div class="header">
     <div class="tab-header" v-show="headerType === 'tab'">
-      <div class="title">{{ pageTitle }}</div>
+      <div class="title" @click="fullscreen()">{{ pageTitle }}</div>
       <div class="menu">
         <img src="/src/assets/indexico/search.svg" alt="搜索" />
-        <img src="/src/assets/indexico/more.svg" alt="更多" />
+        <more-button />
       </div>
     </div>
     <div class="page-header" v-show="headerType === 'page'">
+      <img src="/src/assets/arrow.svg" alt="左箭头" @click.stop="goBack()" />
       <div class="title">{{ pageTitle }}</div>
     </div>
     <div class="empty-header" v-show="headerType === 'empty'"></div>
   </div>
 
-  <div class="main">
+  <div class="main" :class="headerType === 'page' ? 'page' : ''">
     <router-view />
   </div>
 
-  <div class="footer">
-    <router-link to="/home" class="nav-item home">
-      <div class="item-ico" />
-      <span>微信</span>
-    </router-link>
-    <router-link to="/contact" class="nav-item contact">
-      <div class="item-ico" />
-      <span>通讯录</span>
-    </router-link>
-    <router-link to="/find" class="nav-item find">
-      <div class="item-ico" />
-      <span>发现</span>
-    </router-link>
-    <router-link to="/mine" class="nav-item mine">
-      <div class="item-ico" />
-      <span>我</span>
-    </router-link>
+  <div class="footer" v-show="headerType !== 'page'">
+    <bottom-nav />
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+
+import BottomNav from '@/components/BottomNav/index.vue'
+import MoreButton from '@/components/MoreButton/index.vue'
+
 const router = useRouter()
 const route = useRoute()
 
@@ -57,9 +47,8 @@ watch(
   { immediate: true }
 )
 
-const isActive = (url) => {
-  const icoName = index.value === url ? `${url}-active` : url
-  return `/src/assets${icoName}.svg`
+const goBack = () => {
+  router.go(-1)
 }
 
 const fullscreen = () => {
@@ -88,7 +77,10 @@ const fullscreen = () => {
       font-size: 32rem;
       font-weight: 600;
     }
+  }
 
+  .tab-header {
+    background-color: #efefef;
     .menu {
       width: 140rem;
       position: absolute;
@@ -103,12 +95,18 @@ const fullscreen = () => {
     }
   }
 
-  .tab-header {
-    background-color: #efefef;
+  .page-header {
+    & > img {
+      width: 35rem;
+      height: 35rem;
+      transform: rotate(180deg);
+      position: absolute;
+      left: 30rem;
+    }
   }
 
   .empty-header {
-    background-color: #802727;
+    background-color: #ffffff;
   }
 }
 
@@ -116,6 +114,10 @@ const fullscreen = () => {
   height: calc(~'100vh - @{header_height} - @{tabbar_height}');
   background-color: #efefef;
   overflow: auto;
+
+  &.page {
+    height: calc(~'100vh - @{header_height}');
+  }
 }
 
 .footer {
@@ -127,56 +129,5 @@ const fullscreen = () => {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  .nav-item {
-    width: 22%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 24rem;
-    text-decoration: none;
-
-    .item-ico {
-      width: 50rem;
-      height: 50rem;
-      background-size: 100% 100%;
-    }
-
-    &.home .item-ico {
-      background-image: url('/src/assets/tabbar/home.svg');
-    }
-    &.contact .item-ico {
-      background-image: url('/src/assets/tabbar/contact.svg');
-    }
-    &.find .item-ico {
-      background-image: url('/src/assets/tabbar/find.svg');
-    }
-    &.mine .item-ico {
-      background-image: url('/src/assets/tabbar/mine.svg');
-    }
-
-    span {
-      color: #010101;
-    }
-  }
-
-  .router-link-active.nav-item {
-    span {
-      color: #07c160;
-    }
-    &.home .item-ico {
-      background-image: url('/src/assets/tabbar/home-active.svg');
-    }
-    &.contact .item-ico {
-      background-image: url('/src/assets/tabbar/contact-active.svg');
-    }
-    &.find .item-ico {
-      background-image: url('/src/assets/tabbar/find-active.svg');
-    }
-    &.mine .item-ico {
-      background-image: url('/src/assets/tabbar/mine-active.svg');
-    }
-  }
 }
 </style>

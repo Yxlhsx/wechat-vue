@@ -29,7 +29,7 @@ defineProps({
 </script>
 
 <style lang="less" scoped>
-@item-heigh: 110rem;
+@item-heigh: 100rem;
 
 .list-item {
   background-color: #ffffff;

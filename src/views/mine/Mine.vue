@@ -112,7 +112,7 @@ const menuList = ref([
   }
 
   .status {
-    height: 120rem;
+    height: 110rem;
     margin-left: 200rem;
     display: flex;
     align-items: center;
@@ -131,7 +131,7 @@ const menuList = ref([
 }
 
 .alone {
-  margin: 20rem 0 20rem;
+  margin: 15rem 0 15rem;
   border-top: solid 1rem #e6e6e6;
   border-bottom: solid 1rem #e6e6e6;
 }

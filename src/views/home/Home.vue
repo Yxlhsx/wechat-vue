@@ -52,7 +52,7 @@ const num = 2
 
       .title {
         font-size: 32rem;
-        font-weight: 600;
+        font-weight: 400;
       }
 
       .msg {
