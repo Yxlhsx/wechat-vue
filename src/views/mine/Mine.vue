@@ -20,74 +20,49 @@
     </div>
   </div>
 
-  <div class="pay item">
-    <div class="left">
-      <img src="" alt="" />
-      <h5>支付</h5>
-    </div>
-    <div class="right">
-      <i>></i>
-    </div>
+  <div class="alone">
+    <list-item title="支付" img="item.imgUrl" arrow />
   </div>
 
-  <div class="menu-block">
-    <div class="menu-item">
-      <div class="left">
-        <img src="" alt="" />
-      </div>
-      <div class="right">
-        <h5>收藏</h5>
-        <i>></i>
-      </div>
-    </div>
-    <div class="menu-item">
-      <div class="left">
-        <img src="" alt="" />
-      </div>
-      <div class="right">
-        <h5>朋友圈</h5>
-        <i>></i>
-      </div>
-    </div>
-    <div class="menu-item">
-      <div class="left">
-        <img src="" alt="" />
-      </div>
-      <div class="right">
-        <h5>卡包</h5>
-        <i>></i>
-      </div>
-    </div>
-    <div class="menu-item">
-      <div class="left">
-        <img src="" alt="" />
-      </div>
-      <div class="right">
-        <h5>标签</h5>
-        <i>></i>
-      </div>
-    </div>
+  <div class="menu-group">
+    <list-item v-for="item in menuList" :title="item.title" :img="item.imgUrl" arrow />
   </div>
 
-  <div class="settings item" @click="to('/setting')">
-    <div class="left">
-      <img src="" alt="" />
-      <h5>设置</h5>
-    </div>
-    <div class="right">
-      <i>></i>
-    </div>
+  <div class="alone" @click="to('/setting')">
+    <list-item title="设置" img="item.imgUrl" arrow />
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+
+import ListItem from '@/components/ListItem/index.vue'
 
 const router = useRouter()
 
 const to = (url) => {
   router.push(url)
 }
+
+const menuList = ref([
+  {
+    title: '收藏',
+    imgUrl: 'asd'
+  },
+  {
+    title: '朋友圈',
+    imgUrl: 'asd'
+  },
+  {
+    title: '卡包',
+    imgUrl: 'asd'
+  },
+  {
+    title: '标签',
+    imgUrl: 'asd'
+  }
+])
 </script>
 
 <style lang="less" scoped>
@@ -155,71 +130,14 @@ const to = (url) => {
   }
 }
 
-.item {
-  width: 100vw;
-  height: 45px;
-  box-sizing: border-box;
-  padding: 0 15px 0 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #ffffff;
-  margin: 10px 0 10px 0;
-  border-top: solid 1px #e6e6e6;
-  border-bottom: solid 1px #e6e6e6;
-
-  .left {
-    width: 40%;
-    display: flex;
-    align-items: center;
-
-    img {
-      width: 30px;
-      height: 30px;
-      margin-right: 15px;
-    }
-  }
-
-  .right {
-    width: 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.alone {
+  margin: 20rem 0 20rem;
+  border-top: solid 1rem #e6e6e6;
+  border-bottom: solid 1rem #e6e6e6;
 }
 
-.menu-block {
-  .menu-item {
-    width: 100vw;
-    height: 45px;
-    box-sizing: border-box;
-    padding: 0 15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-
-    .left {
-      width: 30px;
-      margin-right: 15px;
-      display: flex;
-      align-items: center;
-
-      img {
-        width: 30px;
-        height: 30px;
-        margin-right: 15px;
-      }
-    }
-
-    .right {
-      width: calc(100vw - 45px);
-      height: 45px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: #e8e8e8 solid 0.5px;
-    }
-  }
+.menu-group {
+  border-top: solid 1rem #e6e6e6;
+  border-bottom: solid 1rem #e6e6e6;
 }
 </style>
