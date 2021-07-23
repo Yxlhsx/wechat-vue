@@ -13,6 +13,12 @@
 </template>
 
 <script setup>
+import Toast from '@/components/Toast/toast'
+
+// Toast({
+//   msg: '消息',
+//   type: 'zzz'
+// })
 const num = 2
 </script>
 

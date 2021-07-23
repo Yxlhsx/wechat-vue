@@ -14,7 +14,7 @@
     <div class="empty-header" v-show="headerType === 'empty'"></div>
   </div>
 
-  <div class="main" :class="headerType === 'page' ? 'page' : ''">
+  <div class="main" :class="headerType">
     <router-view />
   </div>
 
@@ -67,7 +67,10 @@ const fullscreen = () => {
   width: 100vw;
 
   & > div {
-    width: 100vw;
+  }
+
+  .tab-header {
+    background-color: #efefef;
     height: @header_height;
     display: flex;
     align-items: center;
@@ -75,12 +78,8 @@ const fullscreen = () => {
     .title {
       margin: 0 auto;
       font-size: 32rem;
-      font-weight: 600;
+      font-weight: 500;
     }
-  }
-
-  .tab-header {
-    background-color: #efefef;
     .menu {
       width: 140rem;
       position: absolute;
@@ -96,12 +95,23 @@ const fullscreen = () => {
   }
 
   .page-header {
+    background-color: #efefef;
     & > img {
       width: 35rem;
       height: 35rem;
       transform: rotate(180deg);
       position: absolute;
       left: 30rem;
+    }
+
+    height: @header_height;
+    display: flex;
+    align-items: center;
+
+    .title {
+      margin: 0 auto;
+      font-size: 32rem;
+      font-weight: 500;
     }
   }
 
@@ -111,12 +121,17 @@ const fullscreen = () => {
 }
 
 .main {
-  height: calc(~'100vh - @{header_height} - @{tabbar_height}');
   background-color: #efefef;
   overflow: auto;
 
+  &.tab {
+    height: calc(~'100vh - @{header_height} - @{tabbar_height}');
+  }
   &.page {
     height: calc(~'100vh - @{header_height}');
+  }
+  &.empty {
+    height: calc(~'100vh - @{tabbar_height}');
   }
 }
 

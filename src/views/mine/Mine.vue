@@ -66,9 +66,11 @@ const menuList = ref([
 </script>
 
 <style lang="less" scoped>
+@header_height: 90rem;
+
 .top {
   box-sizing: border-box;
-  padding-top: 50rem;
+  padding-top: calc(~'50rem + @{header_height}');
   padding-bottom: 10rem;
   background-color: #ffffff;
   border-bottom: solid 1rem #dbdbdb;

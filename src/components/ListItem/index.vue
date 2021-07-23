@@ -1,7 +1,7 @@
 <template>
   <div class="list-item">
-    <div class="ico"><img :src="img" :alt="title" /></div>
-    <div class="title">
+    <div class="ico" v-if="!noIco"><img :src="img" :alt="title" /></div>
+    <div class="title" :class="noIco ? 'no-ico' : ''">
       <span>{{ title }}</span>
       <img v-if="arrow" src="/src/assets/arrow.svg" alt="右箭头" />
     </div>
@@ -11,7 +11,7 @@
 <script setup>
 import { defineProps } from 'vue'
 
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -23,7 +23,12 @@ defineProps({
     default: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'
   },
   arrow: {
-    type: Boolean
+    type: Boolean,
+    default: false
+  },
+  noIco: {
+    type: Boolean,
+    default: false
   }
 })
 </script>
@@ -61,6 +66,11 @@ defineProps({
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &.no-ico {
+      width: calc(100vw - 30rem);
+      margin-left: 30rem;
+    }
   }
 }
 
