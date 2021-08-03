@@ -4,4 +4,5 @@
 
 **vue3 + vite**
 个人学习vue3使用
-![image](https://user-images.githubusercontent.com/50685169/127948904-e000a4b0-6ec3-433d-ad5e-880fe827cddd.png)
+![1627958334(1)](https://user-images.githubusercontent.com/50685169/127948960-7d087145-a7c4-43c2-a1c1-02d600a95167.jpg)
+
