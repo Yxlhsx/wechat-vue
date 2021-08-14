@@ -15,10 +15,14 @@
 <script setup>
 import Toast from '@/components/Toast/toast'
 
-// Toast({
-//   msg: '消息',
-//   type: 'zzz'
-// })
+setTimeout(() => {
+  Toast({
+    msg: '消息',
+    type: 'zzz',
+    duration: 3000
+  })
+}, 1500)
+
 const num = 2
 </script>
 

@@ -19,7 +19,6 @@ const props = defineProps({
   },
   img: {
     type: String,
-    required: true,
     default: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'
   },
   arrow: {
