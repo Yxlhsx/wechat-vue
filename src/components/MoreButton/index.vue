@@ -1,24 +1,32 @@
 <template>
-  <img class="more" src="/src/assets/indexico/more.svg" alt="更多" @click.stop="onShow()" />
-  <div class="popover" v-show="show">
-    <div class="popper-arrow"></div>
-    <div class="menu-list">
-      <div class="menu-item" v-for="item in menuList">
-        <img :src="item.ico" :alt="item.title" />
-        <div class="title">
-          {{ item.title }}
+  <img class="more" src="/src/assets/indexico/more.svg" alt="更多" @click.stop="onShow" />
+  <transition name="more-ani">
+    <div class="popover" v-show="show">
+      <div class="popper-arrow"></div>
+      <div class="menu-list">
+        <div class="menu-item" v-for="item in menuList">
+          <img :src="item.ico" :alt="item.title" />
+          <div class="title">{{ item.title }}</div>
         </div>
       </div>
     </div>
-  </div>
+  </transition>
 
-  <div class="click-block" v-show="show" @click="show = false"></div>
+  <div class="click-block" v-show="show" @click="onClose"></div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
 import more from '@/assets/indexico/more.svg'
+
+const show = ref(false)
+const onShow = () => {
+  show.value = true
+}
+const onClose = () => {
+  show.value = false
+}
 
 const menuList = ref([
   { title: '发起群聊', ico: more },
@@ -27,11 +35,7 @@ const menuList = ref([
   { title: '收付款', ico: more },
   { title: '帮助与反馈', ico: more }
 ])
-const show = ref(false)
 
-const onShow = () => {
-  show.value = true
-}
 </script>
 
 <style lang="less" scoped>
@@ -73,6 +77,7 @@ img.more {
         width: 60rem;
         height: 60rem;
         margin: 0 20rem 0 25rem;
+        color: #fefefe;
       }
       .title {
         width: 195rem;
@@ -97,5 +102,17 @@ img.more {
   z-index: 1;
   top: 0;
   left: 0;
+}
+
+.more-ani-enter-active,
+.more-ani-leave-active {
+  transform-origin: 100% 0%;
+  transition: all 0.2s ease;
+}
+
+.more-ani-enter-from,
+.more-ani-leave-to {
+  transform: scale(0.5);
+  opacity: 0;
 }
 </style>

@@ -28,11 +28,18 @@ import tag from '@/assets/contact/tag.png'
 import offical from '@/assets/contact/offical.png'
 
 const menuList = ref([
-  { title: '新的朋友', imgUrl: friend },
-  { title: '群聊', imgUrl: addgroup },
-  { title: '标签', imgUrl: tag },
-  { title: '公众号', imgUrl: offical }
+  { title: '新的朋友', imgUrl: '/src/assets/contact/friend.png' },
+  { title: '群聊', imgUrl: '/src/assets/contact/addgroup.png' },
+  { title: '标签', imgUrl: '/src/assets/contact/tag.png' },
+  { title: '公众号', imgUrl: '/src/assets/contact/offical.png' }
 ])
+
+// const menuList = ref([
+//   { title: '新的朋友', imgUrl: friend },
+//   { title: '群聊', imgUrl: addgroup },
+//   { title: '标签', imgUrl: tag },
+//   { title: '公众号', imgUrl: offical }
+// ])
 </script>
 
 <style lang="less" scoped>

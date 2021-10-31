@@ -25,7 +25,7 @@ const itemList = ref([
     imgUrl: friend
   },
   {
-    title: '摇是一摇',
+    title: '摇一摇',
     imgUrl: friend
   }
 ])

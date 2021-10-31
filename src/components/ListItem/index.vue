@@ -1,6 +1,8 @@
 <template>
   <div class="list-item">
-    <div class="ico" v-if="!noIco"><img :src="img" :alt="title" /></div>
+    <div class="ico" v-if="!noIco">
+      <img :src="img" :alt="title" />
+    </div>
     <div class="title" :class="noIco ? 'no-ico' : ''">
       <span>{{ title }}</span>
       <img v-if="arrow" src="/src/assets/arrow.svg" alt="右箭头" />
@@ -39,6 +41,12 @@ const props = defineProps({
   background-color: #ffffff;
   display: flex;
   align-items: center;
+
+  &:active {
+    filter: alpha(Opacity=60);
+    opacity: 0.6;
+    -webkit-tap-highlight-color: transparent;
+  }
 
   .ico {
     width: @item-heigh + 30rem;
