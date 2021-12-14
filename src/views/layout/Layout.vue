@@ -125,13 +125,13 @@ const fullscreen = () => {
   overflow: auto;
 
   &.tab {
-    height: calc(~"100vh - @{header_height} - @{tabbar_height}");
+    height: calc(~'100vh - @{header_height} - @{tabbar_height}');
   }
   &.page {
-    height: calc(~"100vh - @{header_height}");
+    height: calc(~'100vh - @{header_height}');
   }
   &.empty {
-    height: calc(~"100vh - @{tabbar_height}");
+    height: calc(~'100vh - @{tabbar_height}');
   }
 }
 

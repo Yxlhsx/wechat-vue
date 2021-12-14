@@ -3,9 +3,19 @@
 </template>
 
 <script setup>
-const width = document.body.clientWidth
-const html = document.getElementsByTagName('html')[0]
-html.style.fontSize = width / 750 + 'px'
+//加载页面时执行一次
+changeMargin()
+
+//监听浏览器宽度的改变
+window.onresize = function () {
+  changeMargin()
+}
+
+function changeMargin() {
+  const width = document.body.clientWidth
+  const html = document.getElementsByTagName('html')[0]
+  html.style.fontSize = width / 750 + 'px'
+}
 </script>
 
 <style lang="less">
