@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/views/layout/Layout.vue'
 import Home from '@/views/home/Home.vue'
+import Contact from '@/views/contact/Contact.vue'
 import Find from '@/views/find/Find.vue'
 import Mine from '@/views/mine/Mine.vue'
 
@@ -30,7 +31,7 @@ const routes = [
           title: '通讯录',
           headerType: 'tab'
         },
-        component: () => import('@/views/contact/Contact.vue')
+        component: Contact
       },
       {
         path: '/find',

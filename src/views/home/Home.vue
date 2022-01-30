@@ -8,15 +8,6 @@
       :time="'12月12日'"
       size="big"
     />
-    <!-- <div class="conversation-item" v-for="item in num" :key="item">
-      <div class="avatar">
-        <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="头像" />
-      </div>
-      <div class="info">
-        <div class="title">工具人{{ item }}号</div>
-        <div class="msg">啊收到了哈岁的拉黑</div>
-      </div>
-    </div> -->
   </div>
 </template>
 

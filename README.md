@@ -1,8 +1,7 @@
-# wechar-vue
+# Vue 3 + Vite
 
-基于vue3仿微信8.0UI界面
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-**vue3 + vite**
-个人学习vue3使用
-![1627958334(1)](https://user-images.githubusercontent.com/50685169/127948960-7d087145-a7c4-43c2-a1c1-02d600a95167.jpg)
+## Recommended IDE Setup
 
+- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
