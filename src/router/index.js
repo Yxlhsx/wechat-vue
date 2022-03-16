@@ -1,4 +1,4 @@
-import { createRouter,createWebHistory, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import Layout from '@/views/layout/Layout.vue'
 import Home from '@/views/home/Home.vue'
 import Contact from '@/views/contact/Contact.vue'
@@ -50,6 +50,15 @@ const routes = [
           headerType: 'empty'
         },
         component: Mine
+      },
+      {
+        path: '/chat',
+        name: 'Chat',
+        meta: {
+          title: '聊天',
+          headerType: 'page'
+        },
+        component: () => import('@/views/chat/Chat.vue')
       },
       {
         path: '/setting',

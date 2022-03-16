@@ -6,15 +6,24 @@
       :sub="'我给你发了消息你怎么不回我'"
       :img="'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
       :time="'12月12日'"
+      :to="toChat"
       size="big"
     />
   </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
 import ListItem from '@/components/ListItem/index.vue'
 
 import Toast from '@/components/Toast/toast'
+
+const router = useRouter()
+
+function toChat() {
+  router.push('/chat')
+}
 
 // setTimeout(() => {
 //   Toast({

@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item" :class="size">
+  <div class="list-item" :class="size" @click="to">
     <div class="l" v-if="!noIco">
       <img :src="img" :alt="title" />
     </div>
@@ -47,6 +47,10 @@ defineProps({
   noIco: {
     type: Boolean,
     default: false
+  },
+  to: {
+    type: Function,
+    default: function () { }
   }
 })
 </script>
