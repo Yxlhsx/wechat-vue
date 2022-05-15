@@ -22,7 +22,7 @@ function changeMargin() {
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans SC';
+  font-family: "Noto Sans SC";
 }
 
 a,

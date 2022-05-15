@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item" :class="size" @click="to">
+  <div class="list-item" :class="size" @click="tap">
     <div class="l" v-if="!noIco">
       <img :src="img" :alt="title" />
     </div>
@@ -15,7 +15,7 @@
 <script setup>
 import { defineProps } from 'vue'
 
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -48,11 +48,12 @@ defineProps({
     type: Boolean,
     default: false
   },
-  to: {
-    type: Function,
-    default: function () { }
-  }
 })
+const emit = defineEmits(['tap'])
+
+function tap() {
+  emit('tap')
+}
 </script>
 
 <style lang="less" scoped>

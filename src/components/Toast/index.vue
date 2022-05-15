@@ -1,7 +1,7 @@
 <template>
-  <teleport to="#toast-target">
-    <div class="toast" v-show="closed">1{{ msg }}</div>
-  </teleport>
+  <div class="toast" v-show="closed">
+    <span>1{{ msg }}</span>
+  </div>
 </template>
 
 <script setup>
@@ -14,11 +14,12 @@ const props = defineProps({
   },
   duration: {
     type: Number,
-    default: 1500
+    default: 2000
   }
 })
 
 const closed = ref(true)
+
 const onClose = () => {
   closed.value = false
   setTimeout(() => {
@@ -27,9 +28,9 @@ const onClose = () => {
 }
 
 onMounted(() => {
-  setTimeout(() => {
-    onClose()
-  }, props.duration)
+  // setTimeout(() => {
+  //   onClose()
+  // }, props.duration)
 })
 </script>
 
@@ -40,7 +41,7 @@ onMounted(() => {
   padding: 0 15rem;
   border-radius: 15rem;
   line-height: 60rem;
-  z-index: 100;
+  z-index: 1000;
   position: fixed;
   top: 45vh;
   left: 50%;

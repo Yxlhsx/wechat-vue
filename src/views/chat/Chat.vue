@@ -9,15 +9,20 @@
             </ul>
         </main>
         <footer>
-            <input type="text" />
-            <button>发送</button>
+            <input type="text" v-model="msg" />
+            <button @click="send">发送</button>
         </footer>
     </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { ref, computed, onMounted, reactive } from 'vue';
+import { useRoute } from 'vue-router';
+import Toast from '@/components/Toast/toast'
 
+const route = useRoute()
+
+const contactName = ref('联系人')
 const leftAvatar = 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'
 const rightAvatar = 'https://thirdwx.qlogo.cn/mmopen/vi_32/ajNVdqHZLLA8dh3ZzGkZFJqyRazDEicdt7BTTrGwZXR43Kx5icE6GxRkTaAMbx8w4OZw9dB8WibpK0QeicMYibySvNA/132'
 
@@ -28,7 +33,7 @@ const avatarComp = computed(v => v => {
         return leftAvatar
 })
 
-const chatList = [
+const chatList = reactive([
     {
         type: 0,
         text: '你好呀！'
@@ -43,7 +48,28 @@ const chatList = [
         type: 1,
         text: '啊是大家和大陆架傻傻的哈拉省的拉萨的话阿松大汉奸是打开就是大噶看啥可是到了'
     },
-]
+])
+
+const msg = ref('')
+
+onMounted(() => {
+    contactName.value = route.params.contactName
+})
+
+function send() {
+    Toast({
+        msg: '消息',
+        type: 'zzz',
+        duration: 3000
+    })
+    // if (msg.value) {
+    //     chatList.push({
+    //         type: 0,
+    //         text: msg.value
+    //     })
+    //     msg.value = ''
+    // }
+}
 </script>
 
 <style lang="less" scoped>
@@ -79,14 +105,14 @@ const chatList = [
 
                         &::before {
                             position: absolute;
-                            top: 20rem;
+                            top: 25rem;
                             right: -19rem;
                             width: 0;
                             height: 0;
                             content: "";
-                            border-top: transparent solid 20rem;
+                            border-top: transparent solid 15rem;
                             border-left: #09b75e solid 20rem;
-                            border-bottom: transparent solid 20rem;
+                            border-bottom: transparent solid 15rem;
                         }
                     }
                 }
@@ -102,14 +128,14 @@ const chatList = [
 
                         &::before {
                             position: absolute;
-                            top: 20rem;
+                            top: 25rem;
                             left: -19rem;
                             width: 0;
                             height: 0;
                             content: "";
-                            border-top: transparent solid 20rem;
+                            border-top: transparent solid 15rem;
                             border-right: #09b75e solid 20rem;
-                            border-bottom: transparent solid 20rem;
+                            border-bottom: transparent solid 15rem;
                         }
                     }
                 }
@@ -117,6 +143,7 @@ const chatList = [
                 img {
                     width: 80rem;
                     height: 80rem;
+                    border-radius: 10rem;
                 }
 
                 div {
@@ -149,6 +176,11 @@ const chatList = [
             border: none;
             border-radius: 8rem;
             background-color: #f2f2f2;
+            font-size: 22rem;
+
+            &:focus {
+                border: none;
+            }
         }
 
         button {
@@ -159,6 +191,8 @@ const chatList = [
             border-radius: 10rem;
             background-color: #09b75e;
             color: #edfff5;
+            font-size: 22rem;
+            line-height: 22rem;
         }
     }
 }
