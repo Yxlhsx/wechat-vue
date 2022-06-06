@@ -1,6 +1,6 @@
 <template>
   <div class="find">
-    <list-item v-for="item in itemList" :title="item.title" :img="item.imgUrl" arrow @click="to('/circle_friends')" />
+    <list-item v-for="item in itemList" :title="item.title" :img="item.imgUrl" arrow />
   </div>
 </template>
 
@@ -29,12 +29,9 @@ const itemList = ref([
     imgUrl: friend
   }
 ])
-
-function to(url){
-
-}
-
 </script>
 
 <style lang="less" scoped>
+.find {
+}
 </style>

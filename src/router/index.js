@@ -68,6 +68,15 @@ const routes = [
           headerType: 'page'
         },
         component: () => import('@/views/setting/Index.vue')
+      },
+      {
+        path: '/circle_friends',
+        name: 'CircleFriends',
+        meta: {
+          title: '朋友圈',
+          headerType: 'page'
+        },
+        component: () => import('@/views/circle-friends/CircleFriends.vue')
       }
     ]
   },
