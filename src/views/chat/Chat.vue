@@ -11,13 +11,15 @@
     </main>
     <footer>
         <input type="text" v-model="msg" />
-        <button @click="send">发送</button>
+        <Button @click="send">发送</Button>
     </footer>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, reactive, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
+
+import Button from '@/components/Button/index.vue'
 import Toast from '@/components/Toast/toast'
 
 const route = useRoute()
@@ -88,7 +90,7 @@ function send() {
 
 <style lang="less" scoped>
 @main-height: calc(100vh - 90rem - @footer-height);
-@footer-height: 100rem;
+@footer-height: 120rem;
 
 main {
     box-sizing: border-box;
@@ -188,7 +190,7 @@ footer {
         margin: 0;
         padding: 10rem;
         width: 500rem;
-        height: calc(@footer-height * 0.7);
+        height: 70rem;
         border: none;
         border-radius: 8rem;
         background-color: #f2f2f2;
@@ -199,16 +201,10 @@ footer {
         }
     }
 
-    button {
-        margin-left: 40rem;
+    Button {
+        margin-left: 20rem;
         width: 120rem;
-        height: calc(@footer-height * 0.55);
-        border: none;
-        border-radius: 10rem;
-        background-color: #09b75e;
-        color: #edfff5;
-        font-size: 22rem;
-        line-height: 22rem;
+        height: 70rem;
     }
 }
 </style>
