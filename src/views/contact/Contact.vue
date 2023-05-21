@@ -1,37 +1,16 @@
-<template>
-  <div class="contact">
-    <div>
-      <list-item v-for="item in menuList" :title="item.title" :img="item.imgUrl" />
-    </div>
-
-    <div class="contact-block" v-for="item in 24" :key="item">
-      <span class="contact-head">{{ item }}</span>
-      <div>
-        <list-item
-          v-for="(item, index) in 5"
-          :title="'工具人' + index"
-          :img="'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue'
-
 import ListItem from '@/components/ListItem/index.vue'
-
 import friend from '@/assets/contact/friend.png'
 import addgroup from '@/assets/contact/addgroup.png'
 import tag from '@/assets/contact/tag.png'
 import offical from '@/assets/contact/offical.png'
 
 const menuList = ref([
-  { title: '新的朋友', imgUrl: '/src/assets/contact/friend.png' },
-  { title: '群聊', imgUrl: '/src/assets/contact/addgroup.png' },
-  { title: '标签', imgUrl: '/src/assets/contact/tag.png' },
-  { title: '公众号', imgUrl: '/src/assets/contact/offical.png' }
+    { title: '新的朋友', imgUrl: '/src/assets/contact/friend.png' },
+    { title: '群聊', imgUrl: '/src/assets/contact/addgroup.png' },
+    { title: '标签', imgUrl: '/src/assets/contact/tag.png' },
+    { title: '公众号', imgUrl: '/src/assets/contact/offical.png' }
 ])
 
 // const menuList = ref([
@@ -42,7 +21,26 @@ const menuList = ref([
 // ])
 </script>
 
-<style lang="less" scoped>
+<template>
+    <div class="contact">
+        <div>
+            <list-item v-for="item in menuList" :title="item.title" :img="item.imgUrl" />
+        </div>
+
+        <div class="contact-block" v-for="item in 24" :key="item">
+            <span class="contact-head">{{ item }}</span>
+            <div>
+                <list-item
+                    v-for="(item, index) in 5"
+                    :title="'工具人' + index"
+                    :img="'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
+                />
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- <style lang="less" scoped>
 @item-heigh: 110rem;
 
 .contact {
@@ -57,4 +55,4 @@ const menuList = ref([
     }
   }
 }
-</style>
+</style> -->

@@ -38,7 +38,7 @@ const menuList = ref([
 
 </script>
 
-<style lang="less" scoped>
+<!-- <style lang="less" scoped>
 img.more {
   position: relative;
   width: 50rem;
@@ -115,4 +115,4 @@ img.more {
   transform: scale(0.5);
   opacity: 0;
 }
-</style>
+</style> -->

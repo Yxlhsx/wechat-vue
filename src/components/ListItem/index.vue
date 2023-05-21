@@ -1,189 +1,40 @@
-<template>
-  <div class="list-item" :class="size" @click="tap">
-    <div class="l" v-if="!noIco">
-      <img :src="img" :alt="title" />
-    </div>
-    <div class="r" :class="[noIco ? 'no-ico' : '', sub ? 'sub' : '']">
-      <span class="title">{{ title }}</span>
-      <span v-if="sub" class="sub">{{ sub }}</span>
-      <!-- <div v-if="time">{{ time }}</div> -->
-      <img v-if="arrow" src="/src/assets/arrow.svg" alt="右箭头" />
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { defineProps } from 'vue'
-
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-    default: ''
-  },
-  sub: {
-    type: String,
-    required: false,
-    default: ''
-  },
-  time: {
-    type: String,
-    required: false,
-    default: ''
-  },
-  img: {
-    type: String,
-    default: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'
-  },
-  size: {
-    type: String,
-    required: false,
-    default: 'default'
-  },
-  arrow: {
-    type: Boolean,
-    default: false
-  },
-  noIco: {
-    type: Boolean,
-    default: false
-  },
-})
-const emit = defineEmits(['tap'])
-
-function tap() {
-  emit('tap')
+<script lang="ts" setup>
+interface ListItemProps {
+    title: string
+    sub: string
+    time?: string
+    img?: string
+    size?: string
+    arrow?: boolean
+    noIco?: boolean
 }
+
+const props = withDefaults(defineProps<ListItemProps>(), {
+    img: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'
+})
 </script>
 
-<style lang="less" scoped>
-.list-item.default {
-  @item-heigh: 100rem;
+<template>
+    <!-- <div class="list-item" :class="size" @click="tap">
+        <div class="l" v-if="!noIco">
+            <img :src="img" :alt="title" />
+        </div>
+        <div class="r" :class="[noIco ? 'no-ico' : '', sub ? 'sub' : '']">
+            <span class="title">{{ title }}</span>
+            <span v-if="sub" class="sub">{{ sub }}</span>
+            <div v-if="time">{{ time }}</div>
+            <img v-if="arrow" src="/src/assets/arrow.svg" alt="右箭头" />
+        </div>
+    </div> -->
+    <li class="flex list-none divide-y divide-slate-100">
+        <div class="p-3">
+            <img class="w-12" :src="props.img" :alt="props.title" />
+        </div>
+        <div class="flex flex-col justify-center items-start w-full">
+            <div class="text-gray-950 text-base font-semibold">{{ props.title }}</div>
+            <div class="text-gray-400 text-sm">{{ props.sub }}</div>
+        </div>
+    </li>
+</template>
 
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-
-  &:active {
-    filter: alpha(Opacity=60);
-    opacity: 0.6;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .l {
-    width: @item-heigh + 30rem;
-    height: @item-heigh;
-    background-size: 100% 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: @item-heigh * 0.7;
-      height: @item-heigh * 0.7;
-      border-radius: 12rem;
-    }
-  }
-
-  .r {
-    width: calc(100vw - (@item-heigh + 30rem));
-    height: @item-heigh;
-    box-sizing: border-box;
-    padding-right: 35rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &.no-ico {
-      width: calc(100vw - 30rem);
-      margin-left: 30rem;
-    }
-
-    .title {
-      font-size: 32rem;
-      line-height: @item-heigh;
-    }
-
-    .sub {
-      font-size: 24rem;
-      color: #bababa;
-    }
-  }
-}
-
-.list-item.big {
-  @item-heigh: 120rem;
-
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-
-  &:active {
-    filter: alpha(Opacity=60);
-    opacity: 0.6;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .l {
-    width: @item-heigh + 30rem;
-    height: @item-heigh;
-    background-size: 100% 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: @item-heigh * 0.7;
-      height: @item-heigh * 0.7;
-      border-radius: 12rem;
-    }
-  }
-
-  .r {
-    width: calc(100vw - (@item-heigh + 30rem));
-    height: @item-heigh;
-    box-sizing: border-box;
-    padding-right: 35rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &.sub {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-
-      span {
-        display: block;
-
-        &.title {
-          font-size: 32rem;
-          line-height: calc(@item-heigh / 2);
-        }
-      }
-    }
-
-    &.no-ico {
-      width: calc(100vw - 30rem);
-      margin-left: 30rem;
-    }
-
-    .title {
-      font-size: 32rem;
-      line-height: @item-heigh;
-    }
-
-    .sub {
-      font-size: 24rem;
-      color: #bababa;
-    }
-  }
-}
-
-& .list-item:not(:last-child) {
-  .r {
-    border-bottom: #e8e8e8 solid 1rem;
-  }
-}
-</style>
+<style scoped></style>

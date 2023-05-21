@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
-import Layout from '@/views/layout/Layout.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import Layout from '@/layout/index.vue'
 import Home from '@/views/home/Home.vue'
 import Contact from '@/views/contact/Contact.vue'
 import Find from '@/views/find/Find.vue'

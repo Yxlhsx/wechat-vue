@@ -1,38 +1,15 @@
-<template>
-  <div class="main-list">
-    <list-item
-      v-for="(item, index) in 100"
-      :title="'工具人' + item"
-      :sub="'我给你发了消息你怎么不回我'"
-      :img="'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
-      :time="'12月12日'"
-      @tap="toChat(`工具人${index}`)"
-      size="big"
-    />
-  </div>
-</template>
-
-<script setup>
-import { useRouter } from 'vue-router'
-
+<script lang="ts" setup>
 import ListItem from '@/components/ListItem/index.vue'
-
-const router = useRouter()
-
-function toChat(contactName) {
-  router.push({
-    name: 'Chat',
-    params: {
-      contactName
-    }
-  })
-}
 </script>
 
-<style lang="less" scoped>
-@item-height: 140rem;
-
-.main-list {
-  height: 500px;
-}
-</style>
+<template>
+    <div class="">
+        <list-item
+            v-for="item in 30"
+            :title="'好友' + item"
+            :sub="'你好啊，今天是星期五，你准备周末干什么呢？'"
+            :img="'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png'"
+            :time="'12月12日'"
+        />
+    </div>
+</template>
