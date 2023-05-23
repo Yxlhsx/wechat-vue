@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
-import Home from '@/views/home/Home.vue'
-import Contact from '@/views/contact/Contact.vue'
+import Home from '@/views/home/index.vue'
+import Contact from '@/views/contact/index.vue'
 import Find from '@/views/find/Find.vue'
 import Mine from '@/views/mine/Mine.vue'
 
@@ -58,7 +58,7 @@ const routes = [
                     title: '聊天',
                     headerType: 'page'
                 },
-                component: () => import('@/views/chat/Chat.vue')
+                component: () => import('@/views/chat/index.vue')
             },
             {
                 path: '/chat_info',
@@ -96,7 +96,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory('/wechat/'),
+    history: createWebHistory(),
     routes
 })
 

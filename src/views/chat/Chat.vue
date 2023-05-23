@@ -1,23 +1,6 @@
-<template>
-    <main ref="mainRef">
-        <ul ref="ulRef">
-            <li v-for="item in chatList" :class="item.type === 0 ? 'right' : 'left'">
-                <img :src="avatarComp(item.type)" alt />
-                <div>
-                    <p>{{ item.text }}</p>
-                </div>
-            </li>
-        </ul>
-    </main>
-    <footer>
-        <input type="text" v-model="msg" />
-        <Button @click="send">发送</Button>
-    </footer>
-</template>
-
-<script setup>
+<script lang="ts" setup>
 import { ref, computed, onMounted, reactive, nextTick } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute } frolangm 'vue-router'
 
 import Button from '@/components/Button/index.vue'
 import Toast from '@/components/Toast/toast'
@@ -87,6 +70,23 @@ function send() {
     }
 }
 </script>
+
+<template>
+    <main ref="mainRef">
+        <ul ref="ulRef">
+            <li v-for="item in chatList" :class="item.type === 0 ? 'right' : 'left'">
+                <img :src="avatarComp(item.type)" alt />
+                <div>
+                    <p>{{ item.text }}</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <input type="text" v-model="msg" />
+        <Button @click="send">发送</Button>
+    </footer>
+</template>
 
 <style lang="less" scoped>
 @main-height: calc(100vh - 90rem - @footer-height);

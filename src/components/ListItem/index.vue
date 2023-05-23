@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 interface ListItemProps {
     title: string
-    sub: string
+    sub?: string
     time?: string
     img?: string
-    size?: string
+    mini?: boolean
     arrow?: boolean
     noIco?: boolean
 }
@@ -15,24 +15,21 @@ const props = withDefaults(defineProps<ListItemProps>(), {
 </script>
 
 <template>
-    <!-- <div class="list-item" :class="size" @click="tap">
-        <div class="l" v-if="!noIco">
-            <img :src="img" :alt="title" />
-        </div>
-        <div class="r" :class="[noIco ? 'no-ico' : '', sub ? 'sub' : '']">
-            <span class="title">{{ title }}</span>
-            <span v-if="sub" class="sub">{{ sub }}</span>
-            <div v-if="time">{{ time }}</div>
-            <img v-if="arrow" src="/src/assets/arrow.svg" alt="右箭头" />
-        </div>
-    </div> -->
     <li class="flex list-none divide-y divide-slate-100">
-        <div class="p-3">
-            <img class="w-12" :src="props.img" :alt="props.title" />
+        <div class="flex items-center w-2/12" :class="props.mini ? 'p-2' : 'p-3'">
+            <img :class="props.mini ? 'w-12' : 'w-16'" :src="props.img" :alt="props.title" />
         </div>
-        <div class="flex flex-col justify-center items-start w-full">
-            <div class="text-gray-950 text-base font-semibold">{{ props.title }}</div>
-            <div class="text-gray-400 text-sm">{{ props.sub }}</div>
+
+        <div
+            class="flex flex-col justify-center items-start w-8/12"
+            :class="props.mini ? 'py-2' : 'py-3'"
+        >
+            <div class="text-gray-950 text-sm font-semibold">{{ props.title }}</div>
+            <div class="truncate w-full text-gray-400 text-xs">{{ props.sub }}</div>
+        </div>
+
+        <div class="w-2/12" :class="props.mini ? 'py-2' : 'py-3'">
+            <div class="text-gray-300 text-xs">{{ props.time }}</div>
         </div>
     </li>
 </template>

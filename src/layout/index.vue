@@ -1,22 +1,46 @@
 <script lang="ts" setup>
+import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import AppBar from './components/AppBar.vue'
-import AppBottomNav from './components/AppBottomNav.vue'
+import AppMain from './components/AppMain.vue'
+import AppBottomNav, { BottomNavInfo } from './components/AppBottomNav.vue'
 
-const fullscreen = () => {
-    if (document.fullscreenElement) {
-        document.exitFullscreen()
-    } else {
-        document.documentElement.requestFullscreen()
+defineOptions({
+    name: 'Layout'
+})
+
+const route = useRoute()
+
+const navList = ref<BottomNavInfo[]>([
+    {
+        name: '微信',
+        icon: 'home',
+        path: '/home'
+    },
+    {
+        name: '通讯录',
+        icon: 'contact',
+        path: '/contact'
+    },
+    {
+        name: '发现',
+        icon: 'find',
+        path: '/find'
+    },
+    {
+        name: '我',
+        icon: 'mine',
+        path: '/mine'
     }
-}
+])
+
+const hasTabrPage = computed(() => navList.value.map(i => i.path).includes(route.path))
 </script>
 
 <template>
-    <app-bar @click="fullscreen" />
+    <app-bar :title="route.meta['title']" />
 
-    <div style="height: calc(100vh - 7rem)" class="overflow-y-auto h-80">
-        <router-view />
-    </div>
+    <app-main />
 
-    <app-bottom-nav />
+    <app-bottom-nav v-show="hasTabrPage" :nav-list="navList" />
 </template>

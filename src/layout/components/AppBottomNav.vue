@@ -1,44 +1,33 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { nextTick, onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-interface BottomNavInfo {
+export interface BottomNavInfo {
     name: string
     icon: string
     path: string
 }
 
-const navList = ref<BottomNavInfo[]>([
-    {
-        name: '微信',
-        icon: '../../assets/tabbar/home.svg',
-        path: ''
-    },
-    {
-        name: '通讯录',
-        icon: '../../assets/tabbar/contact.svg',
-        path: ''
-    },
-    {
-        name: '发现',
-        icon: '../../assets/tabbar/find.svg',
-        path: ''
-    },
-    {
-        name: '我',
-        icon: '../../assets/tabbar/mine.svg',
-        path: ''
-    }
-])
-function iconSrc(src: string) {
-    return new URL(src, import.meta.url).href
-}
+defineOptions({
+    name: 'AppBottomNav'
+})
 
-const activeIndex = ref(0)
+const props = defineProps<{
+    navList: BottomNavInfo[]
+}>()
 
 const router = useRouter()
+const route = useRoute()
+
+const activeIndex = ref(0)
+onMounted(() => {
+    nextTick(() => {
+        activeIndex.value = props.navList.findIndex(i => i.path == route.path) || 0
+    })
+})
+
 function switchNav(index: number) {
-    router.push(navList.value[index])
+    router.push(props.navList[index].path)
 
     activeIndex.value = index
 }
@@ -46,8 +35,16 @@ function switchNav(index: number) {
 
 <template>
     <ul class="flex justify-around items-center py-2 h-16 bg-[#f7f7f7]">
-        <li v-for="(item, index) in navList" @click="switchNav(index)">
-            <img :src="iconSrc(item.icon)" :alt="item.name" />
+        <li
+            v-for="(item, index) in props.navList"
+            class="flex flex-col justify-center items-center w-full"
+            @click="switchNav(index)"
+        >
+            <img
+                class="w-7"
+                :src="`/src/assets/tabbar/${item.icon}${activeIndex == index ? '-active' : ''}.svg`"
+                :alt="item.name"
+            />
             <div
                 class="text-sm"
                 :class="index == activeIndex ? 'text-bottom-nav-active' : 'text-bottom-nav'"
