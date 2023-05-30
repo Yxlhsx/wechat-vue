@@ -16,19 +16,19 @@ const props = withDefaults(defineProps<ListItemProps>(), {
 
 <template>
     <li class="flex list-none divide-y divide-slate-100">
-        <div class="flex items-center w-2/12" :class="props.mini ? 'p-2' : 'p-3'">
-            <img :class="props.mini ? 'w-12' : 'w-16'" :src="props.img" :alt="props.title" />
+        <div class="flex items-center" :class="props.mini ? 'p-2' : 'p-3'">
+            <img :class="props.mini ? 'w-10' : 'w-14'" :src="props.img" :alt="props.title" />
         </div>
 
         <div
-            class="flex flex-col justify-center items-start w-8/12"
+            class="flex-auto flex flex-col justify-center items-start w-8/12"
             :class="props.mini ? 'py-2' : 'py-3'"
         >
             <div class="text-gray-950 text-sm font-semibold">{{ props.title }}</div>
             <div class="truncate w-full text-gray-400 text-xs">{{ props.sub }}</div>
         </div>
 
-        <div class="w-2/12" :class="props.mini ? 'py-2' : 'py-3'">
+        <div class="w-14" :class="props.mini ? 'py-3' : 'py-4'">
             <div class="text-gray-300 text-xs">{{ props.time }}</div>
         </div>
     </li>

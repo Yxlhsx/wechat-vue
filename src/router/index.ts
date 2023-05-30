@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import Home from '@/views/home/index.vue'
 import Contact from '@/views/contact/index.vue'
-import Find from '@/views/find/Find.vue'
+import Find from '@/views/find/index.vue'
 import Mine from '@/views/mine/Mine.vue'
 
 const routes = [
