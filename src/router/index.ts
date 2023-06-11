@@ -46,7 +46,6 @@ const routes = [
                 path: '/mine',
                 name: 'Mine',
                 meta: {
-                    title: '我',
                     headerType: 'empty'
                 },
                 component: Mine

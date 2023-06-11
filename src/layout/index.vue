@@ -40,7 +40,7 @@ const hasTabrPage = computed(() => navList.value.map(i => i.path).includes(route
 <template>
     <app-bar :title="route.meta['title'] as string||''" />
 
-    <app-main :has-bottom="['/home'].includes(route.path)" />
+    <app-main :has-bottom="hasTabrPage" />
 
     <app-bottom-nav v-show="hasTabrPage" :nav-list="navList" />
 </template>
