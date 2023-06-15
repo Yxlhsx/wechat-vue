@@ -38,7 +38,7 @@ const hasTabrPage = computed(() => navList.value.map(i => i.path).includes(route
 </script>
 
 <template>
-    <app-bar :title="route.meta['title'] as string||''" />
+    <app-bar :title="route.meta['title'] as string||''" :back="!hasTabrPage" />
 
     <app-main :has-bottom="hasTabrPage" />
 
