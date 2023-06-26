@@ -22,7 +22,7 @@ const handleFullscreen = () => {
 </script>
 
 <template>
-    <div class="flex justify-between items-center h-12 bg-[#ededed]">
+    <div class="flex justify-between items-center px-3 h-12 bg-[#ededed]">
         <div class="flex justify-start items-center w-24">
             <img
                 v-show="props.back"
@@ -33,6 +33,9 @@ const handleFullscreen = () => {
             />
         </div>
         <div class="text-lg font-medium" @click="handleFullscreen">{{ props.title }}</div>
-        <div class="w-24"></div>
+        <div class="flex justify-end gap-2 w-24">
+            <img class="w-8" src="@/assets/indexico/search.svg" alt="搜索" />
+            <img class="w-7" src="@/assets/indexico/more.svg" alt="更多" />
+        </div>
     </div>
 </template>
