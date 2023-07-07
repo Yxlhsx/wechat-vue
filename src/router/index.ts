@@ -59,15 +59,15 @@ const routes = [
                 },
                 component: () => import('@/views/chat/index.vue')
             },
-            {
-                path: '/chat_info',
-                name: 'ChatInfo',
-                meta: {
-                    title: '聊天信息',
-                    headerType: 'empty'
-                },
-                component: () => import('@/views/chat/ChatInfo.vue')
-            },
+            // {
+            //     path: '/chat_info',
+            //     name: 'ChatInfo',
+            //     meta: {
+            //         title: '聊天信息',
+            //         headerType: 'empty'
+            //     },
+            //     component: () => import('@/views/chat/ChatInfo.vue')
+            // },
             {
                 path: '/setting',
                 name: 'Setting',
@@ -78,13 +78,13 @@ const routes = [
                 component: () => import('@/views/setting/Index.vue')
             },
             {
-                path: '/circle_friends',
-                name: 'CircleFriends',
+                path: '/moment',
+                name: 'Moment',
                 meta: {
                     title: '朋友圈',
                     headerType: 'page'
                 },
-                component: () => import('@/views/circle-friends/CircleFriends.vue')
+                component: () => import('@/views/moment/index.vue')
             }
         ]
     },
