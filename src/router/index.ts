@@ -51,6 +51,15 @@ const routes = [
                 component: Mine
             },
             {
+                path: '/serve',
+                name: 'Serve',
+                meta: {
+                    title: '服务',
+                    headerType: 'page'
+                },
+                component: () => import('@/views/serve/index.vue')
+            },
+            {
                 path: '/chat',
                 name: 'Chat',
                 meta: {

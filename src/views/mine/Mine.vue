@@ -57,7 +57,7 @@ function to(url: string) {
     </div>
 
     <div class="alone">
-        <list-item title="支付" img="item.imgUrl" arrow />
+        <list-item title="服务" img="item.imgUrl" arrow @click="to('/serve')" />
     </div>
 
     <div class="menu-group">
